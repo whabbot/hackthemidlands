@@ -2,26 +2,28 @@ package app;
 
 public class MiniBoss {
 
+    private static final int NUMBER_OF_QUESTIONS = 3;
+
     private final String name;
     private final Theme theme;
 
     private int hp;
-    private int numberOfQsAsked;
+
+    private String[] questions;
+    private String[] wrongAnswers;
+    private String rightAnswer = "test";
+    private int numOfQuestionsAsked;
 
 
     public MiniBoss(Theme theme) {
         this.theme = theme;
         hp = 30;
 
-        if (theme == Theme.ARCHITECTURE) {
-            name = "ALU";
-        }
-        else if (theme == Theme.ASSEMBLY) {
-            name = "MIPS";
-        }
-        else {
-            name = null;
-        }
+        name = "MIPS";
+
+        questions = Question.getQuestions(theme, NUMBER_OF_QUESTIONS);
+
+        wrongAnswers = Question.getWrongAnswers(theme, questions, NUMBER_OF_QUESTIONS - 1);
     }
 
     public int getHp() {
@@ -41,13 +43,12 @@ public class MiniBoss {
     }
 
     public void askQuestion() {
-        System.out.println(Question.getQuestion(theme, numberOfQsAsked));
-        numberOfQsAsked++;
+        System.out.println(questions[numOfQuestionsAsked]);
     }
 
-    public void promptAnswers() {
-        System.out.println(Question.getPossibleAnswers(theme, numberOfQsAsked - 1));
-    }
+//    public void promptAnswers() {
+//        System.out.println(Question.getPossibleAnswers(theme, numberOfQsAsked - 1));
+//    }
 
     public void introduceSelf() {
         System.out.println("I am " + name + " the " + theme.toString());

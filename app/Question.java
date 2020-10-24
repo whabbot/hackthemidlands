@@ -1,4 +1,5 @@
 package app;
+import java.lang.reflect.Array;
 import java.util.*;
 /*
  * @author whabbot
@@ -12,116 +13,82 @@ public class Question {
 
     public static final int MAX_ANSWER_OPTIONS = 4;
 
-    private static final Map<Integer, String> ARCHITECTURE_QS_EASY = new HashMap();
-    static {
-        ARCHITECTURE_QS_EASY.put(0, "What is a CPU0?");
-        ARCHITECTURE_QS_EASY.put(1, "What is a CPU1?");
-        ARCHITECTURE_QS_EASY.put(2, "What is a CPU2?");
-        ARCHITECTURE_QS_EASY.put(3, "What is a CPU3?");
-        ARCHITECTURE_QS_EASY.put(4, "What is a CPU4?");
-        ARCHITECTURE_QS_EASY.put(5, "What is a CPU5?");
-    }
 
-    private static final Map<Integer, String> ARCHITECTURE_RIGHT_ANSWER_EASY = new HashMap();
-    static {
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(0, "Right answer0");
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(1, "Right answer1");
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(2, "Right answer2");
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(3, "Right answer3");
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(4, "Right answer4");
-        ARCHITECTURE_RIGHT_ANSWER_EASY.put(5, "Right answer5");
-    }
+    private static final ArrayList<String> ASSEMBLY_QS_EASY = new ArrayList<>(Arrays.asList("What is a CPU0?",
+            "What is a CPU1?",
+            "What is a CPU2?",
+            "What is a CPU3?",
+            "What is a CPU4?",
+            "What is a CPU5?"));
 
-    private static final Map<Integer, String[]> ARCHITECTURE_WRONG_ANSWERS_EASY = new HashMap();
+    private static final Map<String, String> ASSEMBLY_RIGHT_ANSWER_EASY = new HashMap();
+    static {
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU0?", "Right answer0");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU1?", "Right answer1");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU2?", "Right answer2");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU3?", "Right answer3");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU4?", "Right answer4");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU5?", "Right answer5");
+    };
+
+    private static final Map<String, ArrayList<String>> ASSEMBLY_WRONG_ANSWERS_EASY = new HashMap();
     static {
         // Probably need a more elegant way of dealing with this.
-        String[] temp = {"Wrong answer 0", "wrong answer 1", "wrong answer 2", "wrong answer 3"};
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(0, temp);
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(1, temp);
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(2, temp);
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(3, temp);
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(4, temp);
-        ARCHITECTURE_WRONG_ANSWERS_EASY.put(5, temp);
+        ArrayList<String> temp = new ArrayList();
+
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 00", "wrong answer 01", "wrong answer 02", "wrong answer 03"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU0?", temp);
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 10", "wrong answer 11", "wrong answer 12", "wrong answer 13"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU1?", temp);
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 20", "wrong answer 21", "wrong answer 22", "wrong answer 23"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU2?", temp);
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 30", "wrong answer 31", "wrong answer 32", "wrong answer 33"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU3?", temp);
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 40", "wrong answer 41", "wrong answer 42", "wrong answer 43"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU4?", temp);
+        temp = new ArrayList<>(Arrays.asList("Wrong answer 50", "wrong answer 51", "wrong answer 52", "wrong answer 53"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU5?", temp);
+        System.out.println(ASSEMBLY_WRONG_ANSWERS_EASY);
 
     }
 
-    private static final Map<Integer, String> ASSEMBLY_QS_EASY = new HashMap();
-    static {
-        ASSEMBLY_QS_EASY.put(0, "How many operands does sll take0?");
-        ASSEMBLY_QS_EASY.put(1, "How many operands does sll take1?");
-        ASSEMBLY_QS_EASY.put(2, "How many operands does sll take2?");
-        ASSEMBLY_QS_EASY.put(3, "How many operands does sll take3?");
-        ASSEMBLY_QS_EASY.put(4, "How many operands does sll take4?");
-        ASSEMBLY_QS_EASY.put(5, "How many operands does sll take5?");
-    }
-
-    private static final Map<Integer, String> ASSEMBLY_RIGHT_ANSWER_EASY = new HashMap();
-    static {
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(0, "Right answer0");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(1, "Right answer1");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(2, "Right answer2");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(3, "Right answer3");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(4, "Right answer4");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put(5, "Right answer5");
-    }
+    // TODO: ASSEMBLY questions
 
 
-    private static final Map<Integer, String[]> ASSEMBLY_WRONG_ANSWERS_EASY = new HashMap();
-    static {
-        // Probably need a more elegant way of dealing with this.
-        String[] temp = {"Wrong answer 0", "wrong answer 1", "wrong answer 2", "wrong answer 3"};
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(0, temp);
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(1, temp);
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(2, temp);
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(3, temp);
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(4, temp);
-        ASSEMBLY_WRONG_ANSWERS_EASY.put(5, temp);
+    public static String[] getQuestions(Theme theme, int numberOfQuestions) {
+        ArrayList<String> questionsList = (ArrayList<String>) ASSEMBLY_QS_EASY.clone();
+        System.out.println("before shuffling" + questionsList);
+        Collections.shuffle(questionsList);
+        System.out.println("after shuffling" + questionsList);
+        System.out.println("after shuffling" + ASSEMBLY_QS_EASY);
 
-    }
-
-
-    public static String getQuestion(Theme theme, int questionNumber) {
-        String question;
+        List<String> questions = new ArrayList();
         switch (theme) {
-            case ARCHITECTURE:
-                question = ARCHITECTURE_QS_EASY.get(questionNumber);
-                break;
             case ASSEMBLY:
-                question = ASSEMBLY_QS_EASY.get(questionNumber);
+                for (int i = 0; i < numberOfQuestions; ++i)
+                    questions.add(questionsList.get(i));
                 break;
             default:
-                question = null;
+                questions = null;
         }
-        return question;
+        return Arrays.stream(questions.toArray()).toArray(String[]::new);
     }
 
-    public static String getPossibleAnswers(Theme theme, int questionNumber) {
-        StringBuilder possibleAnswers = new StringBuilder();
-        int correctAnswerPosition = (int)(Math.random() * MAX_ANSWER_OPTIONS);
-        String rightAnswer;
-        String[] wrongAnswers;
+    public static String[] getWrongAnswers(Theme theme, String[] questions, int numberOfWrongAnswers) {
+        ArrayList<List<String>> wrongAnswers = new ArrayList<>();
+        System.out.println(numberOfWrongAnswers);
 
-        if (theme == Theme.ARCHITECTURE) {
-            rightAnswer = ARCHITECTURE_RIGHT_ANSWER_EASY.get(questionNumber);
-            wrongAnswers = ARCHITECTURE_WRONG_ANSWERS_EASY.get(questionNumber);
-            for (int i = 0; i < MAX_ANSWER_OPTIONS; ++i) {
-                if (i == correctAnswerPosition)
-                    possibleAnswers.append( rightAnswer+ "\n");
-                else
-                    possibleAnswers.append(wrongAnswers[i] + "\n");
-            }
+        ArrayList<String> wrongAnswerForQuestion;
+        for (String str: questions) {
+            System.out.println(str);
+            wrongAnswerForQuestion = (ArrayList<String>) ASSEMBLY_WRONG_ANSWERS_EASY.get(str);
+            System.out.println(wrongAnswerForQuestion);
+            Collections.shuffle(wrongAnswerForQuestion);
+            System.out.println(wrongAnswerForQuestion);
+            wrongAnswers.add(wrongAnswerForQuestion.subList(0, numberOfWrongAnswers));
         }
-        else if (theme == Theme.ASSEMBLY) {
-            rightAnswer = ASSEMBLY_RIGHT_ANSWER_EASY.get(questionNumber);
-            wrongAnswers = ASSEMBLY_WRONG_ANSWERS_EASY.get(questionNumber);
-            for (int i = 0; i < MAX_ANSWER_OPTIONS; ++i) {
-                if (i == correctAnswerPosition)
-                    possibleAnswers.append(rightAnswer + "\n");
-                else
-                    possibleAnswers.append(wrongAnswers[i] + "\n");
-            }
-        }
-    return possibleAnswers.toString();
+
+        return Arrays.stream(wrongAnswers.toArray()).toArray(String[]::new);
     }
 
 
