@@ -14,18 +14,18 @@ public class Boss {
 
     private final String name;
     private final Theme theme;
-    
+
     private int hp;
-    
+
     public Boss() {
         hp = MAX_HP;
-        
+
         int name_index = (int)(Math.random() * BOSS_NAMES.length);
         name = BOSS_NAMES[name_index];
-        
+
         theme = Theme.randomTheme();
     }
-    
+
     public int getHp() {
         return hp;
     }
@@ -43,10 +43,11 @@ public class Boss {
     }
 
     public void askQuestion() {
-        Question randomQuestion = new Question(theme);
-        System.out.println(randomQuestion.getContent());
+        return;
+//        Question randomQuestion = new Question(theme);
+//        System.out.println(randomQuestion.getContent());
     }
-    
+
     public void introduceSelf() {
         System.out.println("I am " + name + " the " + theme.toString() + " demon!");
         System.out.println("Answer my questions if you want to live!");
