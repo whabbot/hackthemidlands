@@ -29,7 +29,6 @@ public class Question {
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What bit pattern is in the register $0?", "All zeros");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is the difference between .asciiz and .ascii?", ".asciiz means a character sequence terminated with ASCII '\\0'");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What type of program is responsible for turning assembly code into machine code?", "An assembler");
-        System.out.println(ASSEMBLY_RIGHT_ANSWER_EASY);
     };
 
     private static final Map<String, ArrayList<String>> ASSEMBLY_WRONG_ANSWERS_EASY = new HashMap();

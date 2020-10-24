@@ -9,7 +9,7 @@ public class MiniBoss {
     private final Theme theme;
 
     // TODO: add a field that keeps track of rightAnswerPosition in promptAnswer -> this will tell you what the right answer is.
-
+    private int rightAnswerIndex;
     private int hp;
 
     // This will be in form String[] questions = {"Question 1", "question 2", "question 3"}
@@ -61,6 +61,7 @@ public class MiniBoss {
 
     public StringBuilder promptAnswer() {
         int rightAnswerPosition = (int)(Math.random() * MAX_ANSWER_OPTIONS);
+        rightAnswerIndex = rightAnswerPosition;
         int wrongAnswersGiven = 0;
         StringBuilder prompt = new StringBuilder();
         for (int i = 0; i < MAX_ANSWER_OPTIONS; ++i) {
@@ -72,9 +73,6 @@ public class MiniBoss {
             }
         }
         return prompt;
-
-
-
     }
 
     public void introduceSelf() {
