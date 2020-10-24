@@ -3,22 +3,24 @@ import app.*;
 
 public class TestMiniBoss {
     public static void main(String[] args) {
-        MiniBoss alu = new MiniBoss(Theme.ASSEMBLY);
-        alu.introduceSelf();
-        for (int i = 0; i < MiniBoss.NUMBER_OF_QUESTIONS; ++i) {
-            System.out.println(alu.askQuestion());
-            System.out.println();
-            System.out.println(alu.promptAnswer());
-            System.out.println();
+        MiniBoss mips = new MiniBoss(Theme.ASSEMBLY);
+        testingBosses(mips, mips.NUMBER_OF_QUESTIONS);
+        MainBoss controlUnit = new MainBoss(Theme.ASSEMBLY);
+        testingBosses(controlUnit, controlUnit.NUMBER_OF_QUESTIONS);
 
-        }
-//        alu.displayQsAndAs();
 
-//        MiniBoss mips = new MiniBoss(Theme.ASSEMBLY);
-//        mips.introduceSelf();
-//        for (int i = 0; i < Question.MAX_ANSWER_OPTIONS; ++i) {
-//            mips.askQuestion();
-//            mips.promptAnswers();
-//        }
     }
+
+    public static void testingBosses(Boss boss, int number) {
+        boss.introduceSelf();
+        for (int i = 0; i < number; ++i) {
+            System.out.println(boss.askQuestion());
+            System.out.println();
+            System.out.println(boss.promptAnswer());
+            System.out.println();
+        }
+    }
+
+
+
 }
