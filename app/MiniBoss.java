@@ -9,9 +9,16 @@ public class MiniBoss {
 
     private int hp;
 
+    // This will be in form String[] questions = {"Question 1", "question 2", "question 3"}
     private String[] questions;
+
+    // This will be in form String[] wrongAnswers = {{"first wrong answer for question 1", "second answer for question 1", "third wrong answer for question 1"},
+    //                                               {"first wrong answer for question 2", "second answer for question 2", "third wrong answer for question 2"},
+    //                                               {"first wrong answer for question 3", "second answer for question 3", "third wrong answer for question 3"},
     private String[] wrongAnswers;
-    private String rightAnswer = "test";
+
+    // This will be in form String right Answer = {"right answer for question 1", "right answer for question 2", "right answer for question 3"};
+    private String[] rightAnswers = {"test"};
     private int numOfQuestionsAsked;
 
 
