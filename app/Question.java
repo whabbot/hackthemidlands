@@ -48,7 +48,6 @@ public class Question {
         ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU4?", temp);
         temp = new ArrayList<>(Arrays.asList("Wrong answer 50", "wrong answer 51", "wrong answer 52", "wrong answer 53"));
         ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU5?", temp);
-        System.out.println(ASSEMBLY_WRONG_ANSWERS_EASY);
 
     }
 
@@ -57,10 +56,8 @@ public class Question {
 
     public static String[] getQuestions(Theme theme, int numberOfQuestions) {
         ArrayList<String> questionsList = (ArrayList<String>) ASSEMBLY_QS_EASY.clone();
-        System.out.println("before shuffling" + questionsList);
         Collections.shuffle(questionsList);
-        System.out.println("after shuffling" + questionsList);
-        System.out.println("after shuffling" + ASSEMBLY_QS_EASY);
+
 
         List<String> questions = new ArrayList();
         switch (theme) {
@@ -74,23 +71,28 @@ public class Question {
         return Arrays.stream(questions.toArray()).toArray(String[]::new);
     }
 
-    public static String[] getWrongAnswers(Theme theme, String[] questions, int numberOfWrongAnswers) {
+    public static List[] getWrongAnswers(Theme theme, String[] questions, int numberOfWrongAnswers) {
         ArrayList<List<String>> wrongAnswers = new ArrayList<>();
-        System.out.println(numberOfWrongAnswers);
 
         ArrayList<String> wrongAnswerForQuestion;
         for (String str: questions) {
-            System.out.println(str);
             wrongAnswerForQuestion = (ArrayList<String>) ASSEMBLY_WRONG_ANSWERS_EASY.get(str);
-            System.out.println(wrongAnswerForQuestion);
             Collections.shuffle(wrongAnswerForQuestion);
-            System.out.println(wrongAnswerForQuestion);
-            wrongAnswers.add(wrongAnswerForQuestion.subList(0, numberOfWrongAnswers));
+            wrongAnswers.add(wrongAnswerForQuestion.subList(0, numberOfWrongAnswers + 1));
+
         }
 
-        return Arrays.stream(wrongAnswers.toArray()).toArray(String[]::new);
+        return Arrays.stream(wrongAnswers.toArray()).toArray(List[]::new);
     }
 
+    public static String[] getRightAnswers(Theme theme, String[] questions) {
+        ArrayList<String> rightAnswers = new ArrayList<>();
+
+        for (String str: questions)
+            rightAnswers.add(ASSEMBLY_RIGHT_ANSWER_EASY.get(questions));
+
+        return Arrays.stream(rightAnswers.toArray()).toArray(String[]::new);
+    }
 
 //    public static void main(String[] args) {
 //        for (int i = 0; i < ARCHITECTURE_QS_EASY.size(); ++i)

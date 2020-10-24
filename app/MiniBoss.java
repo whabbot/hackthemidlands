@@ -1,8 +1,9 @@
 package app;
-
+import java.util.*;
 public class MiniBoss {
 
-    private static final int NUMBER_OF_QUESTIONS = 3;
+    public static final int NUMBER_OF_QUESTIONS = 3;
+
 
     private final String name;
     private final Theme theme;
@@ -15,10 +16,10 @@ public class MiniBoss {
     // This will be in form String[] wrongAnswers = {{"first wrong answer for question 1", "second answer for question 1", "third wrong answer for question 1"},
     //                                               {"first wrong answer for question 2", "second answer for question 2", "third wrong answer for question 2"},
     //                                               {"first wrong answer for question 3", "second answer for question 3", "third wrong answer for question 3"},
-    private String[] wrongAnswers;
+    private List[] wrongAnswers;
 
     // This will be in form String right Answer = {"right answer for question 1", "right answer for question 2", "right answer for question 3"};
-    private String[] rightAnswers = {"test"};
+    private String[] rightAnswers;
     private int numOfQuestionsAsked;
 
 
@@ -31,6 +32,11 @@ public class MiniBoss {
         questions = Question.getQuestions(theme, NUMBER_OF_QUESTIONS);
 
         wrongAnswers = Question.getWrongAnswers(theme, questions, NUMBER_OF_QUESTIONS - 1);
+
+        System.out.println("right answers are ");
+        for (int i = 0; i < Question.getRightAnswers(theme, questions).length; ++i)
+            System.out.println(Question.getRightAnswers(theme, questions)[i]);
+        rightAnswers = Question.getRightAnswers(theme, questions);
     }
 
     public int getHp() {
@@ -51,11 +57,15 @@ public class MiniBoss {
 
     public void askQuestion() {
         System.out.println(questions[numOfQuestionsAsked]);
+        numOfQuestionsAsked++;
     }
 
-//    public void promptAnswers() {
-//        System.out.println(Question.getPossibleAnswers(theme, numberOfQsAsked - 1));
-//    }
+    public void promptAnswer() {
+        for (int i = 0; i < wrongAnswers.length; ++i)
+            System.out.println(wrongAnswers[i]);
+        for (int i = 0; i < rightAnswers.length; ++i)
+            System.out.println(rightAnswers[i]);
+    }
 
     public void introduceSelf() {
         System.out.println("I am " + name + " the " + theme.toString());
