@@ -8,7 +8,9 @@ public class TestMiniBoss {
         for (int i = 0; i < MiniBoss.NUMBER_OF_QUESTIONS; ++i) {
             alu.askQuestion();
             alu.promptAnswer();
+
         }
+//        alu.displayQsAndAs();
 
 //        MiniBoss mips = new MiniBoss(Theme.ASSEMBLY);
 //        mips.introduceSelf();

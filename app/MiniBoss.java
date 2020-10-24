@@ -58,15 +58,23 @@ public class MiniBoss {
     }
 
     public void promptAnswer() {
-        for (int i = 0; i < wrongAnswers.length; ++i)
-            System.out.println(wrongAnswers[i]);
-        for (int i = 0; i < rightAnswers.length; ++i)
-            System.out.println(rightAnswers[i]);
+        System.out.println(wrongAnswers[numOfQuestionsAsked - 1]);
+        System.out.println(rightAnswers[numOfQuestionsAsked - 1]);
+
     }
 
     public void introduceSelf() {
         System.out.println("I am " + name + " the " + theme.toString());
         System.out.println("Answer my questions if you want to live!");
+    }
+
+    public void displayQsAndAs() {
+        for (int i = 0; i < wrongAnswers.length; ++i)
+            System.out.println(wrongAnswers[i]);
+        for (int i = 0; i < rightAnswers.length; ++i)
+            System.out.println(rightAnswers[i]);
+        for (int i = 0; i < questions.length; ++i)
+            System.out.println(questions[i]);
     }
 
 }
