@@ -33,9 +33,6 @@ public class MiniBoss {
 
         wrongAnswers = Question.getWrongAnswers(theme, questions, NUMBER_OF_QUESTIONS - 1);
 
-        System.out.println("right answers are ");
-        for (int i = 0; i < Question.getRightAnswers(theme, questions).length; ++i)
-            System.out.println(Question.getRightAnswers(theme, questions)[i]);
         rightAnswers = Question.getRightAnswers(theme, questions);
     }
 

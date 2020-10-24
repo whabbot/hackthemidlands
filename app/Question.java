@@ -29,6 +29,7 @@ public class Question {
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU3?", "Right answer3");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU4?", "Right answer4");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU5?", "Right answer5");
+        System.out.println(ASSEMBLY_RIGHT_ANSWER_EASY);
     };
 
     private static final Map<String, ArrayList<String>> ASSEMBLY_WRONG_ANSWERS_EASY = new HashMap();
@@ -89,8 +90,7 @@ public class Question {
         ArrayList<String> rightAnswers = new ArrayList<>();
 
         for (String str: questions)
-            rightAnswers.add(ASSEMBLY_RIGHT_ANSWER_EASY.get(questions));
-
+            rightAnswers.add(ASSEMBLY_RIGHT_ANSWER_EASY.get(str));
         return Arrays.stream(rightAnswers.toArray()).toArray(String[]::new);
     }
 
