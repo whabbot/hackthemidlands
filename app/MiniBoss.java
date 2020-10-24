@@ -57,17 +57,19 @@ public class MiniBoss {
         numOfQuestionsAsked++;
     }
 
-    public void promptAnswer() {
+    public StringBuilder promptAnswer() {
         int rightAnswerPosition = (int)(Math.random() * MAX_ANSWER_OPTIONS);
         int wrongAnswersGiven = 0;
+        StringBuilder prompt = new StringBuilder();
         for (int i = 0; i < MAX_ANSWER_OPTIONS; ++i) {
             if (i == rightAnswerPosition)
-                System.out.println(rightAnswers[numOfQuestionsAsked - 1]);
+                prompt.append(rightAnswers[numOfQuestionsAsked - 1] + "abc");
             else {
-                System.out.println(wrongAnswers[numOfQuestionsAsked - 1].get(wrongAnswersGiven));
+                prompt.append(wrongAnswers[numOfQuestionsAsked - 1].get(wrongAnswersGiven) + "abc");
                 wrongAnswersGiven++;
             }
         }
+        return prompt;
 
 
 

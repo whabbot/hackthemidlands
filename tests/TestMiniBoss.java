@@ -8,7 +8,7 @@ public class TestMiniBoss {
         for (int i = 0; i < MiniBoss.NUMBER_OF_QUESTIONS; ++i) {
             alu.askQuestion();
             System.out.println();
-            alu.promptAnswer();
+            System.out.println(alu.promptAnswer());
             System.out.println();
 
         }
