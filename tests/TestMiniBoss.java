@@ -6,7 +6,7 @@ public class TestMiniBoss {
         MiniBoss alu = new MiniBoss(Theme.ASSEMBLY);
         alu.introduceSelf();
         for (int i = 0; i < MiniBoss.NUMBER_OF_QUESTIONS; ++i) {
-            alu.askQuestion();
+            System.out.println(alu.askQuestion());
             System.out.println();
             System.out.println(alu.promptAnswer());
             System.out.println();

@@ -8,6 +8,8 @@ public class MiniBoss {
     private final String name;
     private final Theme theme;
 
+    // TODO: add a field that keeps track of rightAnswerPosition in promptAnswer -> this will tell you what the right answer is.
+
     private int hp;
 
     // This will be in form String[] questions = {"Question 1", "question 2", "question 3"}
@@ -52,9 +54,9 @@ public class MiniBoss {
         return theme;
     }
 
-    public void askQuestion() {
-        System.out.println(questions[numOfQuestionsAsked]);
-        numOfQuestionsAsked++;
+    public String askQuestion() {
+        return questions[numOfQuestionsAsked++];
+
     }
 
     public StringBuilder promptAnswer() {

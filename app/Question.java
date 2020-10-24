@@ -14,21 +14,21 @@ public class Question {
 
 
 
-    private static final ArrayList<String> ASSEMBLY_QS_EASY = new ArrayList<>(Arrays.asList("What is a CPU0?",
-            "What is a CPU1?",
-            "What is a CPU2?",
-            "What is a CPU3?",
-            "What is a CPU4?",
-            "What is a CPU5?"));
+    private static final ArrayList<String> ASSEMBLY_QS_EASY = new ArrayList<>(Arrays.asList("How many register operands does ori take?",
+            "What does a no-op instruction do?",
+            "What value is in the register $t0 after the intruction 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'",
+            "What bit pattern is in the register $0?",
+            "What is the difference between .asciiz and .ascii?",
+            "What type of program is responsible for turning assembly code into machine code?"));
 
     private static final Map<String, String> ASSEMBLY_RIGHT_ANSWER_EASY = new HashMap();
     static {
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU0?", "Right answer0");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU1?", "Right answer1");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU2?", "Right answer2");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU3?", "Right answer3");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU4?", "Right answer4");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is a CPU5?", "Right answer5");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("How many register operands does ori take?", "Two");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What does a no-op instruction do?", "Has no effect");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What value is in the register $t0 after the intruction 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'", "2");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What bit pattern is in the register $0?", "All zeros");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is the difference between .asciiz and .ascii?", ".asciiz means a character sequence terminated with ASCII '\\0'");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What type of program is responsible for turning assembly code into machine code?", "An assembler");
         System.out.println(ASSEMBLY_RIGHT_ANSWER_EASY);
     };
 
@@ -37,18 +37,18 @@ public class Question {
         // Probably need a more elegant way of dealing with this.
         ArrayList<String> temp = new ArrayList();
 
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 00", "wrong answer 01", "wrong answer 02", "wrong answer 03"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU0?", temp);
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 10", "wrong answer 11", "wrong answer 12", "wrong answer 13"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU1?", temp);
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 20", "wrong answer 21", "wrong answer 22", "wrong answer 23"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU2?", temp);
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 30", "wrong answer 31", "wrong answer 32", "wrong answer 33"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU3?", temp);
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 40", "wrong answer 41", "wrong answer 42", "wrong answer 43"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU4?", temp);
-        temp = new ArrayList<>(Arrays.asList("Wrong answer 50", "wrong answer 51", "wrong answer 52", "wrong answer 53"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is a CPU5?", temp);
+        temp = new ArrayList<>(Arrays.asList("None", "One", "Three", "Four"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("How many register operands does ori take?", temp);
+        temp = new ArrayList<>(Arrays.asList("Goes through a loop backwards", "Deletes an operation from memory", "Adds two immediates together", "Stores the value 'NO' in a register"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What does a no-op instruction do?", temp);
+        temp = new ArrayList<>(Arrays.asList("0", "1", "3", "These are not valid instructions"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What value is in the register $t0 after the intruction 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'", temp);
+        temp = new ArrayList<>(Arrays.asList("All ones", "Alternating ones and zeros", "The binary representation of 64", "The binary representation of 32"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What bit pattern is in the register $0?", temp);
+        temp = new ArrayList<>(Arrays.asList(".asciiz means multiple ASCII characters, .ascii is just one", "There is no difference", ".asciiz is twice as long as .ascii", ".ascii is twice as long as .asciiz"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is the difference between .asciiz and .ascii?", temp);
+        temp = new ArrayList<>(Arrays.asList("A compiler", "A lexer", "A constructor", "An interpreter"));
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What type of program is responsible for turning assembly code into machine code?", temp);
 
     }
 
