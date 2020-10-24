@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class MakeAssemblyFunAgain
 {
+	Scanner scan = new Scanner(System.in);
 	int getLength = 100;
 
 	public void drawBoxTop()
@@ -16,6 +19,26 @@ public class MakeAssemblyFunAgain
 		for(int i=0; i<=getLength+1; i++)
 			System.out.print("-");
 		System.out.println("+");
+	}
+
+	public void asciiPicture()
+	{
+		pictureGraphic graphic = new pictureGraphic();
+		StringBuilder str = graphic.icChip();
+
+		String[] lines = str.toString().split("ab");
+
+		for(String s: lines)
+		{
+			int space = getLength - s.length() + 2;
+			System.out.print("|" + s);
+			while(space > 0)
+			{
+				System.out.print(" ");
+				space--;
+			}
+			System.out.println("|");
+		}
 	}
 
 	public void drawHealthBar()
@@ -48,38 +71,47 @@ public class MakeAssemblyFunAgain
 		System.out.println("|");
 	}
 
+	public void addEmptySpace()
+	{
+		classEmptySpace eSpace = new classEmptySpace();
+		eSpace.emptySpace();
+	}
+
+	public void startGame()
+	{
+		newGame nGame = new newGame();
+		nGame.newGameScreen();
+	}
+
 	public void run()
 	{
-		drawBoxTop();
+		startGame();
 
-		pictureGraphic graphic = new pictureGraphic();
-		textBox tBox = new textBox();
-		StringBuilder str = graphic.icChip();
+		String startExit = scan.nextLine();
 
-		String[] lines = str.toString().split("ab");
-
-		for(String s: lines)
+		if(startExit.equals("a"))
 		{
-			int space = getLength - s.length() + 2;
-			System.out.print("|" + s);
-			while(space > 0)
-			{
-				System.out.print(" ");
-				space--;
-			}
-			System.out.println("|");
+			addEmptySpace();
+
+			textBox tBox = new textBox();
+
+			drawBoxTop();
+
+			asciiPicture();
+
+			tBox.drawBoxTop();
+
+			drawHealthBar();
+
+			tBox.gettingQuestions();
+
+			tBox.drawBoxBottom();
+
+			drawBoxBottom();
+
 		}
-
-
-		tBox.drawBoxTop();
-
-		drawHealthBar();
-
-		tBox.gettingQuestions();
-
-		tBox.drawBoxBottom();
-
-		drawBoxBottom();
+		else
+			System.exit(0);
 	}
 
 	public static void main(String[] args)
