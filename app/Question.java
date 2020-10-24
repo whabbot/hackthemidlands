@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Question {
 
-    public static final int MAX_ANSWER_OPTIONS = 4;
+
 
 
     private static final ArrayList<String> ASSEMBLY_QS_EASY = new ArrayList<>(Arrays.asList("What is a CPU0?",

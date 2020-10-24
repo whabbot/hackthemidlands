@@ -3,7 +3,7 @@ import java.util.*;
 public class MiniBoss {
 
     public static final int NUMBER_OF_QUESTIONS = 3;
-
+    public static final int MAX_ANSWER_OPTIONS = 4;
 
     private final String name;
     private final Theme theme;
@@ -58,8 +58,18 @@ public class MiniBoss {
     }
 
     public void promptAnswer() {
-        System.out.println(wrongAnswers[numOfQuestionsAsked - 1]);
-        System.out.println(rightAnswers[numOfQuestionsAsked - 1]);
+        int rightAnswerPosition = (int)(Math.random() * MAX_ANSWER_OPTIONS);
+        int wrongAnswersGiven = 0;
+        for (int i = 0; i < MAX_ANSWER_OPTIONS; ++i) {
+            if (i == rightAnswerPosition)
+                System.out.println(rightAnswers[numOfQuestionsAsked - 1]);
+            else {
+                System.out.println(wrongAnswers[numOfQuestionsAsked - 1].get(wrongAnswersGiven));
+                wrongAnswersGiven++;
+            }
+        }
+
+
 
     }
 
