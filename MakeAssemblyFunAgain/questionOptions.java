@@ -30,10 +30,14 @@ public class questionOptions
 
 	public void askQOpt()
 	{
+		String strArr[] = {"Number of units in Von Neumann Architecture?","The one that connects processor and memory are?", "Is this a game?"};
+		String optArrOne[] = {"A. First", "B. Second"};
+
 		for(int i=0; i<3; i++)
 		{
 			setQuestion(strArr[i]);
 		}
+
 		setOptions(Arrays.asList(optArrOne));
 	}
 
@@ -42,8 +46,10 @@ public class questionOptions
 		String questionArray[] = {
 			"Number of units in Von Neumann Architecture?",
 			"The one that connects processor and memory are?",
-			"Control Unit doesnot communicate with Input/Output interfaces" // True or Flase
+			"Control Unit doesnot communicate with Input/Output interfaces", // True or Flase
 			"Does Control Unit stores or process data?",
-		}
+		};
+
+		return null; // will change to appropriate return 
 	}
 }
