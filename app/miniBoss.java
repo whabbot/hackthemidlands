@@ -1,6 +1,6 @@
 package app;
 
-public class miniBoss {
+public class MiniBoss {
 
     private final String name;
     private final Theme theme;
@@ -9,7 +9,7 @@ public class miniBoss {
     private int numberOfQsAsked;
 
 
-    public miniBoss(Theme theme) {
+    public MiniBoss(Theme theme) {
         this.theme = theme;
         hp = 30;
 
