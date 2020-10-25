@@ -11,7 +11,7 @@ public class Boss {
     protected int hp;
     // This will be in form String[] questions = {"Question 1", "question 2", "question 3"}
     protected String[] questions;
-    // This will be in form String[] wrongAnswers = {{"first wrong answer for question 1", "second answer for question 1", "third wrong answer for question 1"},
+    // This will be in form List[] wrongAnswers = {{"first wrong answer for question 1", "second answer for question 1", "third wrong answer for question 1"},
     //                                               {"first wrong answer for question 2", "second answer for question 2", "third wrong answer for question 2"},
     //                                               {"first wrong answer for question 3", "second answer for question 3", "third wrong answer for question 3"},
     protected List[] wrongAnswers;
