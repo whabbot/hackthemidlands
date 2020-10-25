@@ -52,6 +52,10 @@ public class Boss {
         return theme;
     }
     
+    public int getNumOfQuestionsAsked( ) {
+        return numOfQuestionsAsked;
+    }
+    
     public int getRightAnswerIndex() {
         return rightAnswerIndex;
     }
