@@ -17,7 +17,9 @@ public class TestMiniBoss {
             System.out.println(boss.askQuestion());
             System.out.println();
             System.out.println(boss.promptAnswer());
+            System.out.println(boss.getRightAnswerIndex());
             System.out.println();
+            
         }
     }
 

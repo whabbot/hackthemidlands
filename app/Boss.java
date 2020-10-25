@@ -18,8 +18,10 @@ public class Boss {
     // This will be in form String right Answer = {"right answer for question 1", "right answer for question 2", "right answer for question 3"};
     protected String[] rightAnswers;
     // TODO: add a field that keeps track of rightAnswerPosition in promptAnswer -> this will tell you what the right answer is.
-    private int rightAnswerIndex;
+    
     private int numOfQuestionsAsked;
+    
+    private int rightAnswerIndex;
 
     public Boss(Theme theme, String name, int hp, int totalNumberOfQuestions) {
 
@@ -48,6 +50,10 @@ public class Boss {
 
     public Theme getTheme() {
         return theme;
+    }
+    
+    public int getRightAnswerIndex() {
+        return rightAnswerIndex;
     }
 
     public String askQuestion() {
