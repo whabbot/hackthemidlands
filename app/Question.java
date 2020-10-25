@@ -15,7 +15,7 @@ public class Question {
             "What is in $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?",
             "What bit pattern is in the register $0?",
             "What is the difference between .asciiz and .ascii?",
-            "What type of program is responsible for turning assembly code into machine code?"));
+            "What type of program turns assembly code into machine code?"));
 
     private static final Map<String, String> ASSEMBLY_RIGHT_ANSWER_EASY = new HashMap();
     static {
@@ -24,7 +24,7 @@ public class Question {
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is in $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?", "2");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What bit pattern is in the register $0?", "All zeros");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is the difference between .asciiz and .ascii?", ".asciiz means a character sequence terminated with ASCII '\\0'");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What type of program is responsible for turning assembly code into machine code?", "An assembler");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What type of program turns assembly code into machine code?", "An assembler");
     };
 
     private static final Map<String, ArrayList<String>> ASSEMBLY_WRONG_ANSWERS_EASY = new HashMap();
@@ -48,7 +48,7 @@ public class Question {
         ASSEMBLY_WRONG_ANSWERS_EASY.put("What is the difference between .asciiz and .ascii?", temp);
 
         temp = new ArrayList<>(Arrays.asList("A compiler", "A lexer", "A constructor", "An interpreter"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What type of program is responsible for turning assembly code into machine code?", temp);
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What type of program turns assembly code into machine code?", temp);
 
     }
 
