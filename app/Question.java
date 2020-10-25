@@ -12,7 +12,7 @@ public class Question {
 
     private static final ArrayList<String> ASSEMBLY_QS_EASY = new ArrayList<>(Arrays.asList("How many register operands does ori take?",
             "What does a no-op instruction do?",
-            "What is in  $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?",
+            "What is in $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?",
             "What bit pattern is in the register $0?",
             "What is the difference between .asciiz and .ascii?",
             "What type of program is responsible for turning assembly code into machine code?"));
@@ -21,7 +21,7 @@ public class Question {
     static {
         ASSEMBLY_RIGHT_ANSWER_EASY.put("How many register operands does ori take?", "Two");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What does a no-op instruction do?", "Has no effect");
-        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is in  $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?", "2");
+        ASSEMBLY_RIGHT_ANSWER_EASY.put("What is in $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?", "2");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What bit pattern is in the register $0?", "All zeros");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What is the difference between .asciiz and .ascii?", ".asciiz means a character sequence terminated with ASCII '\\0'");
         ASSEMBLY_RIGHT_ANSWER_EASY.put("What type of program is responsible for turning assembly code into machine code?", "An assembler");
@@ -39,7 +39,7 @@ public class Question {
         ASSEMBLY_WRONG_ANSWERS_EASY.put("What does a no-op instruction do?", temp);
 
         temp = new ArrayList<>(Arrays.asList("0", "1", "3", "These are not valid instructions"));
-        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is in  $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?", temp);
+        ASSEMBLY_WRONG_ANSWERS_EASY.put("What is in $t0 after 'ori $t0, $zero, 1' then 'addi $t0, $t0, 1'?", temp);
 
         temp = new ArrayList<>(Arrays.asList("All ones", "Alternating ones and zeros", "The binary representation of 64", "The binary representation of 32"));
         ASSEMBLY_WRONG_ANSWERS_EASY.put("What bit pattern is in the register $0?", temp);
