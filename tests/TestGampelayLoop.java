@@ -19,18 +19,18 @@ public class TestGampelayLoop {
         
         System.out.println(MiniBoss.image);
         
-        score = 0;
+        score = 0; // Score counter
         for (int i = 0; i < MiniBoss.NUMBER_OF_QUESTIONS; ++i) {
-            System.out.println(alu.askQuestion());
-            answers = alu.promptAnswer().toString().split("abc", 0);
+            System.out.println(alu.askQuestion()); // Prints out question
+            answers = alu.promptAnswer().toString().split("abc", 0); // Gets the answer options in an array
             for (int j = 0; j < answers.length; ++j) {
-                System.out.println((char)(j + 65) + "      "+ answers[j]);
+                System.out.println((char)(j + 65) + "      "+ answers[j]); // Prints each answer with A/B/C/D in front
             }
-            rightAnswerIndex = alu.getRightAnswerIndex();
-            rightAnswerLetter = (char)(rightAnswerIndex + 65);
+            rightAnswerIndex = alu.getRightAnswerIndex(); // The index of the right answer
+            rightAnswerLetter = (char)(rightAnswerIndex + 65); // The letter corresponding to this index (ie this is what the user should enter)
             System.out.println("How do you answer? (A/B/C/D)");
             userResponse = input.nextLine().charAt(0);
-            if (Character.toUpperCase(userResponse) == rightAnswerLetter)
+            if (Character.toUpperCase(userResponse) == rightAnswerLetter) // If the user input the right answer, increment the score
                 score++;
         }
         System.out.println("\n\"Congratulations,\" it says. \"You scored " + score + " points.\"");
