@@ -2,7 +2,7 @@ package app;
 
 public class MiniBoss extends Boss {
 
-    public static final int NUMBER_OF_QUESTIONS = 3;
+    public static final int NUMBER_OF_QUESTIONS = 6;
     public static String image;
 
     public MiniBoss(Theme theme) {
