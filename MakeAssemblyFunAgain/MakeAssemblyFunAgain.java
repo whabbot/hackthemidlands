@@ -41,15 +41,15 @@ public class MakeAssemblyFunAgain
 		}
 	}
 
-	public void drawHealthBar()
+	public void drawHealthBar(int numOfHeal)
 	{
-		int spaces = getLength - 20;
-		int i = 10;
+		int spaces = getLength - 19 + numOfHeal;
+		int i = 9 - numOfHeal;
 		System.out.print("|");
 		while(spaces-- > 0)
 		{
 			System.out.print(" ");
-			if(spaces == 70)
+			if(spaces == 71+numOfHeal)
 				System.out.print("|");
 		}
 		while(i-- > 0)
@@ -59,6 +59,27 @@ public class MakeAssemblyFunAgain
 		{
 			System.out.print(" ");
 			spaces++;
+		}
+		System.out.println("|");
+	}
+
+	public void drawBossHealthBar(int numOfHeal)
+	{
+		int spaces = 10;
+		int i = 9-numOfHeal;
+		System.out.print("|");
+		while(spaces-- > 0)
+			System.out.print(" ");
+		System.out.print("|");
+		while(i-- > 0)
+			System.out.print("I");
+
+		spaces = getLength - 19 + numOfHeal;
+		while(spaces-- > 0)
+		{
+			System.out.print(" ");
+			if(spaces == 10)
+				System.out.print("|");
 		}
 		System.out.println("|");
 	}
@@ -97,18 +118,9 @@ public class MakeAssemblyFunAgain
 
 			drawBoxTop();
 
-			asciiPicture();
+			asciiPicture();			
 
-			tBox.drawBoxTop();
-
-			drawHealthBar();
-
-			tBox.gettingQuestions();
-
-			tBox.drawBoxBottom();
-
-			drawBoxBottom();
-
+			tBox.printTextBox();
 		}
 		else
 			System.exit(0);
